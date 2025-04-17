@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Tools</title>
+    <link rel="stylesheet" href="Productivity .css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Productivity Tools</h1>
+        </div>
+    </header>
+
+    <main class="content">
+        <!-- Pomodoro Timer -->
+        <section class="pomodoro">
+            <h2>Pomodoro Timer</h2>
+            <div id="pomodoroTimer" class="timer">25:00</div>
+            <button id="startPomodoro">Start</button>
+            <button id="resetPomodoro">Reset</button>
+        </section>
+
+        <!-- Habit Tracker -->
+        <section class="habit-tracker">
+            <h2>Habit Tracker</h2>
+            <form id="habitForm">
+                <input type="text" id="habitInput" placeholder="Add a new habit">
+                <button type="submit">Add Habit</button>
+            </form>
+            <ul id="habitList"></ul>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-list">
+            <h2>Task List</h2>
+            <form id="taskForm">
+                <input type="text" id="taskInput" placeholder="Add a new task">
+                <button type="submit">Add Task</button>
+            </form>
+            <ul id="taskList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 MyStudentHub</p>
+    </footer>
+
+    <script>
+        // Pomodoro Timer Logic
+let pomodoroTimer;
+let isRunning = false;
+let timeLeft = 25 * 60; // 25 minutes in seconds
+
+// Start Pomodoro Timer
+document.getElementById("startPomodoro").addEventListener("click", () => {
+    if (!isRunning) {
+        pomodoroTimer = setInterval(updatePomodoroTimer, 1000);
+        isRunning = true;
+        document.getElementById("startPomodoro").textContent = "Pause";
+    } else {
+        clearInterval(pomodoroTimer);
+        isRunning = false;
+        document.getElementById("startPomodoro").textContent = "Resume";
+    }
+});
+
+// Reset Pomodoro Timer
+document.getElementById("resetPomodoro").addEventListener("click", () => {
+    clearInterval(pomodoroTimer);
+    isRunning = false;
+    timeLeft = 25 * 60; // Reset to 25 minutes
+    updatePomodoroDisplay();
+    document.getElementById("startPomodoro").textContent = "Start";
+});
+
+// Update Timer Display
+function updatePomodoroTimer() {
+    if (timeLeft <= 0) {
+        clearInterval(pomodoroTimer);
+        isRunning = false;
+        alert("Pomodoro session is over! Time to take a break.");
+        timeLeft = 25 * 60; // Reset to 25 minutes
+        updatePomodoroDisplay();
+        document.getElementById("startPomodoro").textContent = "Start";
+    } else {
+        timeLeft--;
+        updatePomodoroDisplay();
+    }
+}
+
+// Update the Pomodoro Timer display
+function updatePomodoroDisplay() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    document.getElementById("pomodoroTimer").textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+}
+
+// Format time to always show two digits
+function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+// Habit Tracker Logic
+const habitForm = document.getElementById("habitForm");
+const habitInput = document.getElementById("habitInput");
+const habitList = document.getElementById("habitList");
+
+habitForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const habitText = habitInput.value.trim();
+    if (habitText) {
+        addHabit(habitText);
+        habitInput.value = "";
+    }
+});
+
+function addHabit(habitText) {
+    const li = document.createElement("li");
+    li.textContent = habitText;
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", () => {
+        habitList.removeChild(li);
+    });
+    li.appendChild(deleteButton);
+    habitList.appendChild(li);
+}
+
+// Task List (To-Do List) Logic
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const taskList = document.getElementById("taskList");
+
+taskForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const taskText = taskInput.value.trim();
+    if (taskText) {
+        addTask(taskText);
+        taskInput.value = "";
+    }
+});
+
+function addTask(taskText) {
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", () => {
+        taskList.removeChild(li);
+    });
+    li.appendChild(deleteButton);
+    taskList.appendChild(li);
+}
+
+    </script>
+</body>
+</html>

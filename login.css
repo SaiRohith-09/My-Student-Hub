@@ -1,0 +1,144 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to Blue Gradient */
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 40px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#toggleButton {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#toggleButton:hover {
+    background-color: #6a11cb;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+input {
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f4f4f9;
+}
+
+input:focus {
+    border: 2px solid #2575fc;
+    background-color: #fff;
+}
+
+button {
+    padding: 14px;
+    background-color: #2575fc;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6a11cb;
+}
+
+/* Header Styling */
+h2 {
+    color: #2575fc;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Initially hide the signup form */
+#signupForm {
+    display: none;
+}
+
+/* Smooth Animation for Form Transitions */
+#loginForm, #signupForm {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Animation for Switching Forms */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#signupForm {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Toggle Button Animation */
+#toggleButton {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+#toggleButton:hover {
+    transform: translateY(-3px);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input, button {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,309 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f7fb;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Smooth Transition for All Elements */
+  * {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937; /* Dark blue-gray */
+    color: white;
+    padding: 25px 30px; /* Increased padding for height */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header .logo h2 {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .hamburger {
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: block;
+    color: white;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100vh;
+    background-color: #374151; /* Dark grayish blue */
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+  }
+  
+  .sidebar.active {
+    left: 0; /* Show sidebar when active */
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+  
+  .sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .sidebar nav ul li a:hover {
+    background-color: #2563eb; /* Blue accent on hover */
+  }
+  
+  .sidebar nav ul li a:active {
+    transform: scale(0.98); /* Subtle scale effect */
+  }
+  
+  /* Top Navigation Styles */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: #1f2937;
+    padding: 20px 30px; /* Increased padding for height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .top-nav a {
+    text-decoration: none;
+    color: #1f2937;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .top-nav a:hover {
+    background-color: #2563eb; /* Blue background on hover */
+    color: white;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-color: #2563eb; /* Bright blue */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .hero-buttons .btn {
+    background-color: #38bdf8; /* Light blue */
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .hero-buttons .btn:hover {
+    background-color: #1e40af; /* Darker blue on hover */
+  }
+  
+  .hero-buttons .btn-outline {
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .hero-buttons .btn-outline:hover {
+    background-color: #38bdf8;
+    color: white;
+  }
+  
+  /* Overview Section */
+  .overview {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .overview .card {
+    background-color: #ffffff;
+    padding: 30px;
+    width: 22%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .overview .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .overview .card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2563eb; /* Blue color for headings */
+  }
+  
+  .overview .card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #374151; /* Dark gray */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: #38bdf8; /* Light blue for links */
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation for Hero Section */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    /* Adjust sidebar width and content for mobile */
+    .sidebar {
+      width: 200px;
+    }
+  
+    .main-content {
+      margin-left: 0; /* Content takes full width on mobile */
+    }
+  
+    .overview {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .overview .card {
+      width: 90%; /* Card takes full width on mobile */
+      margin-bottom: 30px;
+    }
+  
+    .top-nav {
+      flex-direction: column;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .top-nav a {
+      font-size: 1.2rem;
+      padding: 8px 15px;
+    }
+  }
+  
+  /* Overall layout for cards */
+  .overview {
+    display: flex;
+    justify-content: space-between; /* Ensures there is space between the cards */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    gap: 20px; /* Add gap between cards */
+    padding: 20px;
+  }
+  
+  /* Each card */
+  .card {
+    flex: 0 0 48%; /* Ensures each card takes 48% of the available width, allowing for 2 per row */
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Adds lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ensure text inside card is properly aligned */
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Responsive Styles: Stack cards on smaller screens */
+  @media screen and (max-width: 768px) {
+    .card {
+      flex: 0 0 100%; /* Cards will take full width on small screens */
+    }
+  }
+
+  

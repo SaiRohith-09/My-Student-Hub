@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup Toggle</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Toggle Button -->
+        <button id="toggleButton" onclick="toggleForm()">Switch to Signup</button>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form id="loginFormSubmit" onsubmit="submitLogin(event)">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" style="display:none;">
+            <h2>Signup</h2>
+            <form id="signupFormSubmit" onsubmit="submitSignup(event)">
+                <label for="signupName">Name</label>
+                <input type="text" id="signupName" name="name" required>
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" required>
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var loginForm = document.getElementById('loginForm');
+            var signupForm = document.getElementById('signupForm');
+            var toggleButton = document.getElementById('toggleButton');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                toggleButton.textContent = 'Switch to Signup';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                toggleButton.textContent = 'Switch to Login';
+            }
+        }
+
+        // Handle Login Form Submit
+        function submitLogin(event) {
+            event.preventDefault(); // Prevent page refresh
+            // Add login form submission logic here (e.g., validate, send data)
+            alert('Login Successful!');
+            window.location.href = "index.html"; // Redirect to index.html after login
+        }
+
+        // Handle Signup Form Submit
+        function submitSignup(event) {
+            event.preventDefault(); // Prevent page refresh
+            // Add signup form submission logic here (e.g., validate, send data)
+            alert('Signup Successful!');
+            window.location.href = "index.html"; // Redirect to index.html after signup
+        }
+    </script>
+</body>
+</html>
