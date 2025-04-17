@@ -38,7 +38,7 @@
             <div class="logo">🧠 For Students</div>
             <nav>
                 <a href="academics.html">📚 Academics</a>
-                <a href="productivity.html">📈 Productivity</a>
+                <a href="Productivity.html">📈 Productivity</a>
                 <a href="carrer.html">💼 Career & Finance</a>
                 <a href="fun.html">🧘 Wellness & Fun</a>
             </nav>
@@ -81,129 +81,7 @@
     </div>
     
     <script>
-      // Robot Pet Interaction
-document.getElementById("robotPet").addEventListener("mouseover", function () {
-    this.style.transform = "rotate(360deg)";
-});
-
-document.getElementById("robotPet").addEventListener("mouseout", function () {
-    this.style.transform = "rotate(0deg)";
-});
-
-document.getElementById("playButton").addEventListener("click", function () {
-    alert("Your Robot Pet is happy!");
-    let robotPet = document.getElementById("robotPet");
-    robotPet.style.transform = "rotate(180deg)";
-    setTimeout(() => {
-        robotPet.style.transform = "rotate(0deg)";
-    }, 1000);
-});
-
-// Memory Game Logic
-let memoryGameActive = false;
-let memoryGameCards = [];
-let memoryGameMatchedCards = [];
-
-function startMemoryGame() {
-    memoryGameActive = true;
-    memoryGameCards = [
-        '🦄', '🦄', '🐶', '🐶', '🐱', '🐱',
-        '🐸', '🐸', '🐷', '🐷', '🐢', '🐢'
-    ];
-    memoryGameMatchedCards = [];
-    shuffle(memoryGameCards);
-    displayMemoryBoard();
-}
-
-function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
-}
-
-function displayMemoryBoard() {
-    let board = document.getElementById("memoryBoard");
-    board.innerHTML = "";
-    memoryGameCards.forEach((card, index) => {
-        let cardElement = document.createElement("div");
-        cardElement.classList.add("memory-card");
-        cardElement.setAttribute("data-card", card);
-        cardElement.setAttribute("data-index", index);
-        cardElement.addEventListener("click", flipCard);
-        board.appendChild(cardElement);
-    });
-}
-
-function flipCard() {
-    if (this.classList.contains("flipped") || memoryGameMatchedCards.includes(this)) return;
-
-    this.textContent = this.getAttribute("data-card");
-    this.classList.add("flipped");
-
-    let flippedCards = document.querySelectorAll(".memory-card.flipped");
-    if (flippedCards.length === 2) {
-        checkMatch(flippedCards);
-    }
-}
-
-function checkMatch(cards) {
-    if (cards[0].getAttribute("data-card") === cards[1].getAttribute("data-card")) {
-        memoryGameMatchedCards.push(cards[0], cards[1]);
-        if (memoryGameMatchedCards.length === memoryGameCards.length) {
-            setTimeout(() => alert("You win!"), 500);
-        }
-    } else {
-        setTimeout(() => {
-            cards.forEach(card => {
-                card.classList.remove("flipped");
-                card.textContent = "";
-            });
-        }, 1000);
-    }
-}
-
-// Quiz Game Logic
-const questions = [
-    { question: "What is 2 + 2?", options: ['3', '4', '5'], correct: '4' },
-    { question: "What is the capital of France?", options: ['Berlin', 'Paris', 'Rome'], correct: 'Paris' },
-    { question: "Which planet is known as the Red Planet?", options: ['Earth', 'Mars', 'Jupiter'], correct: 'Mars' }
-];
-
-let currentQuestionIndex = 0;
-let score = 0;
-
-function startQuizGame() {
-    score = 0;
-    currentQuestionIndex = 0;
-    displayQuizQuestion();
-}
-
-function displayQuizQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        let question = questions[currentQuestionIndex];
-        let quizContainer = document.getElementById("quizQuestions");
-        quizContainer.innerHTML = `
-            <p>${question.question}</p>
-            <div>
-                ${question.options.map(option => `<button onclick="checkAnswer('${option}')">${option}</button>`).join('')}
-            </div>
-        `;
-    } else {
-        alert(`Your score: ${score}`);
-        startQuizGame(); // Restart the quiz
-    }
-}
-
-function checkAnswer(selectedAnswer) {
-    let correctAnswer = questions[currentQuestionIndex].correct;
-    if (selectedAnswer === correctAnswer) {
-        score++;
-    }
-    currentQuestionIndex++;
-    displayQuizQuestion();
-}
-
+      
     </script>
 </body>
 </html>
