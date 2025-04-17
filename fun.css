@@ -1,0 +1,212 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    color: #003366;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    color: #004c99;
+    margin-top: 2rem;
+  }
+  
+  /* Robot Pet Section */
+  .robot-pet {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.2);
+  }
+  
+  .pet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #robotPet {
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 153, 255, 0.4);
+    transition: transform 0.3s;
+  }
+  
+  #robotPet:hover {
+    transform: scale(1.05);
+  }
+  
+  #playButton {
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: #0099ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  #playButton:hover {
+    background: #007acc;
+    transform: scale(1.05);
+  }
+  
+  /* Games Section */
+  .games-section {
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.3);
+  }
+  
+  .games-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .game-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    background: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .game-button:hover {
+    background: #0077b6;
+    transform: scale(1.05);
+  }
+  
+  /* Memory Game */
+  #memory-game {
+    display: none;
+    grid-template-columns: repeat(4, 100px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .card span {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 128, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .card .front {
+    background: #e6f7ff;
+    color: #007BFF;
+  }
+  
+  .card .back {
+    background: #007BFF;
+    color: #fff;
+    transform: rotateY(180deg);
+  }
+  
+  .card.flipped .front {
+    transform: rotateY(180deg);
+  }
+  
+  .card.flipped .back {
+    transform: rotateY(0);
+  }
+  
+  /* Quiz Game */
+  #quiz-game {
+    display: none;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.2);
+    text-align: center;
+  }
+  
+  .question {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0059b3;
+    margin-bottom: 1.5rem;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .option-btn {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #007BFF;
+    background: #f0f8ff;
+    color: #007BFF;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .option-btn:hover {
+    background: #007BFF;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 128, 255, 0.5);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .games-list {
+      flex-direction: column;
+    }
+  
+    #memory-game {
+      grid-template-columns: repeat(2, 80px);
+    }
+  
+    .card {
+      width: 80px;
+      height: 80px;
+    }
+  
+    #robotPet {
+      width: 150px;
+    }
+  }
+  

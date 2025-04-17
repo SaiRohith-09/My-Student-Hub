@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career & Guidance | MyStudentHub</title>
+    <link rel="stylesheet" href="carrer.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h2>MyStudentHub - Career & Guidance</h2>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Career Path Guidance -->
+        <section class="career-path">
+            <h2>Career Path Guidance</h2>
+            <div class="path-list">
+                <div class="path-card">
+                    <h3>Software Engineering</h3>
+                    <p>Explore opportunities in web development, mobile apps, AI, and more!</p>
+                </div>
+                <div class="path-card">
+                    <h3>Data Science</h3>
+                    <p>Learn how to work with data, machine learning models, and predictive analytics.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Cyber Security</h3>
+                    <p>Become a guardian of digital infrastructures, preventing data breaches and hacks.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Cloud Computing</h3>
+                    <p>Work with cloud technologies, managing distributed systems, and big data analytics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Builder -->
+        <section class="resume-builder">
+            <h2>Resume Builder</h2>
+            <form id="resumeForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="text" id="degree" placeholder="Degree" required>
+                <input type="text" id="skills" placeholder="Skills (comma separated)" required>
+                <textarea id="experience" placeholder="Previous Experience (if any)" required></textarea>
+                <button type="submit">Generate Resume</button>
+            </form>
+        </section>
+
+        <!-- Internship Opportunities -->
+        <section class="internships">
+            <h2>Internship Opportunities</h2>
+            <div class="internship-list">
+                <div class="internship-card">
+                    <h3>Software Development Intern</h3>
+                    <p>Apply for a software development internship with XYZ Company.</p>
+                    <button>Apply Now</button>
+                </div>
+                <div class="internship-card">
+                    <h3>Data Scientist Intern</h3>
+                    <p>Join our data science team and work on real-time projects.</p>
+                    <button>Apply Now</button>
+                </div>
+                <div class="internship-card">
+                    <h3>Cyber Security Intern</h3>
+                    <p>Learn about network security and participate in penetration testing.</p>
+                    <button>Apply Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Search -->
+        <section class="job-search">
+            <h2>Job Search</h2>
+            <input type="text" id="jobSearch" placeholder="Search for jobs..." />
+            <button id="searchButton">Search</button>
+            <div class="job-results" id="jobResults">
+                <!-- Job results will appear here after searching -->
+            </div>
+        </section>
+
+        <!-- Interview Preparation -->
+        <section class="interview-prep">
+            <h2>Interview Preparation</h2>
+            <ul>
+                <li><a href="#">How to Prepare for Technical Interviews</a></li>
+                <li><a href="#">Common HR Interview Questions</a></li>
+                <li><a href="#">Top Interview Resources</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2025 MyStudentHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Resume Builder Form Handling
+document.getElementById('resumeForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Resume Generated! Please check your details.');
+});
+
+// Job Search Functionality (This is a mock example)
+document.getElementById('searchButton').addEventListener('click', function() {
+    const searchQuery = document.getElementById('jobSearch').value;
+    if (searchQuery) {
+        document.getElementById('jobResults').innerHTML = `
+            <p>Showing results for: <strong>${searchQuery}</strong></p>
+            <ul>
+                <li>Software Engineer - Company A</li>
+                <li>Data Analyst - Company B</li>
+                <li>UI/UX Designer - Company C</li>
+            </ul>
+        `;
+    } else {
+        alert('Please enter a job title to search.');
+    }
+});
+
+    </script>
+</body>
+</html>
