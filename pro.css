@@ -285,3 +285,15 @@ footer {
     margin: 0 10px;
     font-size: 1.1rem;
 }
+
+#gpaResult {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #09141f;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+

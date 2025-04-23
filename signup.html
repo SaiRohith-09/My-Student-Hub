@@ -144,6 +144,48 @@
                 transform: translateY(0);
             }
         }
+
+        #strength-bar {
+    display: flex;
+    margin-top: 8px;
+    gap: 4px;
+}
+
+#strength-bar .bar {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: background 0.3s;
+}
+
+#strength-text {
+    margin-top: 6px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* space for the eye icon */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-60%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+}
+
+
     </style>
 </head>
 <body>
@@ -165,6 +207,13 @@
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
+                <span id="togglePassword">👁️</span>
+                <div id="strength-bar">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <small id="strength-text">Password Strength</small>
             </div>
             <button type="submit" href="login.html">Sign Up</button>
         </form>
@@ -205,6 +254,50 @@
     });
 });
 
+document.getElementById("password").addEventListener("input", function () {
+    const password = this.value;
+    const strengthText = document.getElementById("strength-text");
+    const bars = document.querySelectorAll("#strength-bar .bar");
+
+    let strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+    // Reset bars
+    bars.forEach(bar => bar.style.background = "rgba(255, 255, 255, 0.3)");
+
+    if (strength === 0) {
+        strengthText.textContent = "Password Strength";
+    } else if (strength <= 2) {
+        strengthText.textContent = "Weak";
+        bars[0].style.background = "red";
+    } else if (strength === 3) {
+        strengthText.textContent = "Medium";
+        bars[0].style.background = "orange";
+        bars[1].style.background = "orange";
+    } else if (strength === 4) {
+        strengthText.textContent = "Strong";
+        bars[0].style.background = "limegreen";
+        bars[1].style.background = "limegreen";
+        bars[2].style.background = "limegreen";
+    }
+});
+
+document.getElementById("togglePassword").addEventListener("click", function () {
+    const passwordField = document.getElementById("password");
+    const type = passwordField.getAttribute("type");
+
+    if (type === "password") {
+        passwordField.setAttribute("type", "text");
+        this.textContent = "🙈"; // eye with slash
+    } else {
+        passwordField.setAttribute("type", "password");
+        this.textContent = "👁️";
+    }
+});
     </script>
 
 </body>

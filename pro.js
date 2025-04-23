@@ -90,16 +90,21 @@ addCourseButton.addEventListener("click", addNewCourseInput);
 
 gpaForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const courseGrades = document.querySelectorAll(".course-grade");
     const courseCredits = document.querySelectorAll(".course-credit");
 
     let totalCredits = 0;
     let weightedGrades = 0;
 
-    // Loop through all courses and calculate the GPA
     courseGrades.forEach((grade, index) => {
         const credit = courseCredits[index];
-        if (!isNaN(grade.value) && !isNaN(credit.value)) {
+        if (
+            grade.value !== "" &&
+            credit.value !== "" &&
+            !isNaN(grade.value) &&
+            !isNaN(credit.value)
+        ) {
             totalCredits += parseFloat(credit.value);
             weightedGrades += parseFloat(grade.value) * parseFloat(credit.value);
         }
@@ -109,30 +114,30 @@ gpaForm.addEventListener("submit", (e) => {
         const gpa = weightedGrades / totalCredits;
         gpaResult.textContent = `Your GPA: ${gpa.toFixed(2)}`;
     } else {
-        gpaResult.textContent = "Please enter valid grades and credit hours for all courses.";
+        gpaResult.textContent = "Please enter valid grades and credits.";
     }
 });
 
 function addNewCourseInput() {
-    // Check if the user has added more than 12 courses
+    // Limit to 12 courses
     const courseInputs = document.querySelectorAll(".course-grade");
     if (courseInputs.length >= 12) {
         alert("You can only add a maximum of 12 courses.");
         return;
     }
 
-    // Create new input fields for grade and credit
+    const courseNumber = courseInputs.length + 1;
+
     const newCourseDiv = document.createElement("div");
     newCourseDiv.classList.add("input-group");
-
-    const courseNumber = courseInputs.length + 1;
 
     const gradeLabel = document.createElement("label");
     gradeLabel.setAttribute("for", `course${courseNumber}`);
     gradeLabel.textContent = `Course ${courseNumber}`;
-    
+
     const gradeInput = document.createElement("input");
     gradeInput.setAttribute("type", "number");
+    gradeInput.setAttribute("id", `course${courseNumber}`);
     gradeInput.setAttribute("class", "course-grade");
     gradeInput.setAttribute("placeholder", "Grade");
     gradeInput.setAttribute("min", "0");
@@ -150,6 +155,7 @@ function addNewCourseInput() {
 
     coursesContainer.appendChild(newCourseDiv);
 }
+
 
 
 // Assignment Due Dates Functionality
