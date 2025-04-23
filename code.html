@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Coding Skills to Learn | MyStudentHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="code.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="MyStudentHub Logo" class="logo-img">
+            <h1>MyStudentHub</h1>
+            <h2>Front-End Coding Skills to Learn</h2>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="intro">
+            <h2>Why Learn Front-End Development?</h2>
+            <p>Front-end development is essential for building interactive websites and applications. As a front-end developer, you will design the part of the website that users interact with. Here are some key skills you need to learn!</p>
+        </section>
+
+        <!-- Code Challenge Section -->
+        <section class="code-challenge">
+            <h2>Code Completion Challenge</h2>
+            <p>Complete the missing part of the code to build a simple webpage structure. Select your level below:</p>
+
+            <!-- Level Selection -->
+            <div class="level-selection">
+                <button id="easy" class="level-button">Easy</button>
+                <button id="intermediate" class="level-button" disabled>Intermediate</button>
+                <button id="hard" class="level-button" disabled>Hard</button>
+            </div>
+
+            <!-- Easy Question -->
+            <div id="easy-question" class="question" style="display: none;">
+                <p><strong>Q: Create a basic webpage with a "Hello World" heading.</strong></p>
+                <textarea id="html-easy" placeholder="Write your HTML code here...">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Simple Webpage&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Add a heading here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </textarea>
+            </div>
+
+            <!-- Intermediate Question -->
+            <div id="intermediate-question" class="question" style="display: none;">
+                <p><strong>Q: Create a heading and a paragraph inside.</strong></p>
+                <textarea id="html-intermediate" placeholder="Write your HTML code here...">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Box Layout&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Add a heading and a paragraph here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </textarea>
+            </div>
+
+            <!-- Hard Question -->
+            <div id="hard-question" class="question" style="display: none;">
+                <p><strong>Q: Create a layout with 3 items in a row.</strong></p>
+                <textarea id="html-hard" placeholder="Write your HTML code here...">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Three Item Layout&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;Item 1&lt;/div&gt;
+        &lt;div class="item"&gt;Item 2&lt;/div&gt;
+        &lt;div class="item"&gt;Item 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </textarea>
+            </div>
+
+            <button id="check-answer" class="game-button">Check Answer</button>
+            <div id="feedback"></div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <p>© 2025 MyStudentHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="code.js"></script>
+</body>
+</html>

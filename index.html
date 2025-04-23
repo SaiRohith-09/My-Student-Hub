@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyStudentHub | Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+          <img src="logo.png" alt="MyStudentHub Logo" class="logo-img">
+          <h2>MyStudentHub</h2>
+        </div>
+        <p>Welcome to <span id="display-username"></span></p>
+        <p>Your Roll Number: <span id="display-rollnumber"></span></p>
+        <div class="hamburger" id="hamburger">
+          <span>☰</span>
+        </div>
+      </header>
+    
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="index.html">🧩 Features</a></li>
+            <li><a href="index.html">📖 About</a></li>
+            <li><a href="index.html">📬 Contact</a></li>
+            <li><a href="login.html">🔐 Login </a></li>
+            <li><a href="signup.html">🔐 Sign Up</a></li>
+            <button id="logoutBtn">🏃🚪Logout</button>
+          </ul>
+        </nav>
+      </aside>
+    
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-nav">
+            <div class="logo">🧠 For CSE Students</div>
+            <nav>
+                <a href="academics.html">📚 Academics</a>
+                <a href="Productivity.html">📈 Productivity</a>
+                <a href="carrer.html">💼 Career & Finance</a>
+                <a href="code.html">🧘 Coding and Skills</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Your All-in-One Hub for Student Success!</h1>
+            <p>Plan smart, grow professionally, and stay well – all in one place.</p>
+            <div class="hero-buttons">
+                <a href="signup.html" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <section class="overview">
+          <h1 style="font-size: xx-large;">💬 Features of MyStudentHub</h1>
+          <div class="card">
+            <h3>📚 Academics</h3>
+            <p>Manage your classes, assignments, and exams effortlessly.</p>
+          </div>
+          <div class="card">
+            <h3>📈 Productivity</h3>
+            <p>Boost focus with Pomodoro, track habits, and plan tasks smartly.</p>
+          </div>
+          <div class="card">
+            <h3>💼 Career & Finance</h3>
+            <p>Build resumes, find internships, and manage your finances.</p>
+          </div>
+          <div class="card">
+            <h3>🧘 Coding and Skills</h3>
+            <p>Take breaks, relax, and play with your Robot Pet buddy.</p>
+          </div>
+        </section>
+
+
+        <!-- Upcoming Events Section -->
+<section class="events">
+  <h2>📅 Upcoming Events</h2>
+  <ul>
+    <li><strong>April 25:</strong> Resume Building Workshop</li>
+    <li><strong>May 2:</strong> Tech Talk on AI & Python</li>
+    <li><strong>May 10:</strong> Online Hackathon Begins!</li>
+  </ul>
+</section>
+        
+
+    
+    <!-- Testimonials Section -->
+<section class="testimonials">
+  <h2>💬 What Students Say</h2>
+  <div class="testimonial-card">
+    <p id="om">"MyStudentHub helped me stay organized and ace my exams!"</p>
+    <h4>— Sai Rohith, 2nd Year CSE</h4>
+  </div>
+  <div class="testimonial-card">
+    <p id="om">"I love the Robot Pet and the productivity tools. Such a stress buster!"</p>
+    <h4>— Akash, 3rd Year CSE</h4>
+  </div>
+</section>
+
+
+<div class="newsletter-box">
+  <h2>Subscribe to Our Newsletter</h2>
+  <p>Get the latest updates, tips, and student hacks directly to your inbox.</p>
+  <form>
+    <input type="email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
+
+<button class="back-to-top" onclick="scrollToTop()">
+  ⬆️ Back to Top
+</button>
+
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>🎓 MyStudentHub</h3>
+      <p>Your all-in-one productivity & wellness space designed just for students.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#planner">Study Planner</a></li>
+        <li><a href="#finance">Personal Finance</a></li>
+        <li><a href="#wellness">Wellness & Fun</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Stay Connected</h4>
+      <p>Email: support@mystudenthub.com</p>
+      <p>Follow us on</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 MyStudentHub. Built with 💻 by CSE Students.</p>
+  </div>
+</footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const sidebar = document.getElementById('sidebar');
+    
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+      });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const username = localStorage.getItem("signupUsername");
+    const rollNumber = localStorage.getItem("signupRollNumber");
+
+    const usernameSpan = document.getElementById("display-username");
+    const rollSpan = document.getElementById("display-rollnumber");
+
+    if (usernameSpan && username) {
+      usernameSpan.textContent = username;
+    }
+
+    if (rollSpan && rollNumber) {
+      rollSpan.textContent = rollNumber;
+    }
+  });
+
+  const btn = document.querySelector(".back-to-top");
+
+  window.onscroll = () => {
+    if (document.documentElement.scrollTop > 300) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  document.getElementById("logoutBtn").addEventListener("click", function () {
+  localStorage.clear();
+  sessionStorage.clear();
+  document.cookie.split(";").forEach(function (c) {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+  alert("You have been logged out.");
+  window.location.href = "index.html";
+});
+
+
+
+
+    </script>
+    
+</body>
+</html>

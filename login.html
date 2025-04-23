@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+
+        .container {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 380px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 28px;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 6px;
+            text-align: left;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid #00d4ff;
+            box-shadow: 0px 0px 10px #00d4ff;
+            transform: scale(1.02);
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #00d4ff, #8000ff);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            box-shadow: 0px 0px 15px rgba(0, 212, 255, 0.6);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #8000ff, #00d4ff);
+            transform: scale(1.05);
+            box-shadow: 0px 0px 25px rgba(0, 212, 255, 0.8);
+        }
+
+        p {
+            color: #fff;
+            margin-top: 15px;
+        }
+
+        p a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+            color: #ffea00;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .go-home-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.go-home-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.go-home-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .go-home-link {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+
+        
+          </style>
+</head>
+<body>
+  <div class="container">
+    <form class="login-form">
+      <h2>Login</h2>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your Username" required />
+      </div>
+      <div class="input-group">
+        <label for="rollnumber">Roll Number</label>
+        <input type="text" id="rollnumber" placeholder="Enter your Roll Number" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" id="login-btn">Login</button>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+  </div>
+  <a href="index.html" class="go-home-link">
+    <button class="go-home-btn">Go to Home</button>
+  </a>
+  
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const loginForm = document.querySelector(".login-form");
+
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const usernameInput = document.getElementById("username").value.trim();
+        const rollInput = document.getElementById("rollnumber").value.trim();
+        const passwordInput = document.getElementById("password").value.trim();
+
+        const storedUsername = localStorage.getItem("signupUsername");
+        const storedRollNumber = localStorage.getItem("signupRollNumber");
+        const storedPassword = localStorage.getItem("signupPassword");
+
+        if (!usernameInput || !rollInput || !passwordInput) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        if (
+          usernameInput === storedUsername &&
+          rollInput === storedRollNumber &&
+          passwordInput === storedPassword
+        ) {
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("loggedInUser", usernameInput);
+          alert("Login successful!");
+          window.location.href = "index.html";
+        } else {
+          alert("Invalid username, roll number, or password");
+        }
+      });
+    });
+  </script>
+  
+</html>

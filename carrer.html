@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career & Guidance | MyStudentHub</title>
+    <link rel="stylesheet" href="car.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="MyStudentHub Logo" class="logo-img">
+            <h1>MyStudentHub</h1>
+            <h2>Career & Guidance</h2>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Career Path Guidance -->
+        <section class="career-path">
+            <h2>Career Path Guidance</h2>
+            <div class="path-list">
+                <div class="path-card">
+                    <h3>Software Engineering</h3>
+                    <p>Explore opportunities in web development, mobile apps, AI, and more!</p>
+                </div>
+                <div class="path-card">
+                    <h3>Data Science</h3>
+                    <p>Learn how to work with data, machine learning models, and predictive analytics.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Cyber Security</h3>
+                    <p>Become a guardian of digital infrastructures, preventing data breaches and hacks.</p>
+                </div>
+                <div class="path-card">
+                    <h3>Cloud Computing</h3>
+                    <p>Work with cloud technologies, managing distributed systems, and big data analytics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Builder -->
+        <section class="resume-builder">
+                <!-- Personal Information -->
+                <h1>Resume Builder</h1>
+                <h3 style="text-align:center; color:#6c5ce7; font-family: 'Poppins', sans-serif;">Create Your Stylish Resume</h3>
+                <form id="resumeForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required><br><br>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required><br><br>
+                
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required><br><br>
+                
+                    <label for="about">About Me:</label>
+                    <textarea id="about" placeholder="Enter a short bio about yourself"></textarea><br><br>
+                
+                    <label for="skills">Skills:</label>
+                    <textarea id="skills" placeholder="Enter your skills"></textarea><br><br>
+                
+                    <label for="education">Education:</label>
+                    <textarea id="education" placeholder="Enter your educational background"></textarea><br><br>
+                
+                    <label for="experience">Experience:</label>
+                    <textarea id="experience" placeholder="Enter your work experience"></textarea><br><br>
+                
+                    <label for="projects">Projects:</label>
+                    <textarea id="projects" placeholder="Enter your projects"></textarea><br><br>
+                
+                    <label for="certifications">Certifications:</label>
+                    <textarea id="certifications" placeholder="Enter your certifications"></textarea><br><br>
+                
+                    <label for="languages">Languages:</label>
+                    <input type="text" id="languages" placeholder="e.g., English, Hindi, French"><br><br>
+                
+                    <label for="technicalSkills">Technical Skills:</label>
+                    <textarea id="technicalSkills" placeholder="List technical skills..."></textarea><br><br>
+                
+                    <label for="softSkills">Soft Skills:</label>
+                    <textarea id="softSkills" placeholder="List soft skills..."></textarea><br><br>
+                
+                    <label for="hobbies">Hobbies & Interests:</label>
+                    <textarea id="hobbies" placeholder="Mention hobbies and interests..."></textarea><br><br>
+                
+                    <label for="awards">Awards & Achievements:</label>
+                    <textarea id="awards" placeholder="List awards or achievements..."></textarea><br><br>
+                
+                    <label for="volunteerExperience">Volunteer Experience:</label>
+                    <textarea id="volunteerExperience" placeholder="Describe your volunteer work..."></textarea><br><br>
+                
+                    <label for="links">LinkedIn / GitHub / Portfolio Links:</label>
+                    <input type="text" id="links" placeholder="Add links..."><br><br>
+                
+                    <label for="publications">Publications or Blogs:</label>
+                    <textarea id="publications" placeholder="Mention publications or blogs..."></textarea><br><br>
+                
+                    <label for="references">References:</label>
+                    <textarea id="references" placeholder="Name, Position, Contact Info..."></textarea><br><br>
+                
+                    <button type="button" id="downloadBtn">Download Resume</button>
+                </form>
+        </section>
+
+        <!-- Student Finance Section -->
+<section class="student-finance">
+    <h2>Smart Finance for Students</h2>
+    <p>Track your money, get suggestions, and discover ways to earn as a student.</p>
+
+    <div class="finance-inputs">
+        <label for="income">Monthly Income (₹):</label>
+        <input type="number" id="income" placeholder="e.g. 5000">
+
+        <label for="expenses">Total Monthly Expenses (₹):</label>
+        <input type="number" id="expenses" placeholder="e.g. 3000">
+
+        <button onclick="analyzeFinance()">Analyze & Suggest</button>
+    </div>
+
+    <div class="finance-output" id="financeResult">
+        <!-- Suggestions will appear here -->
+    </div>
+
+    <div class="earning-tips">
+        <h3>Ways to Earn Money as a Student</h3>
+        <ul>
+            <li>Apply for paid internships on platforms like Internshala, LinkedIn, or company career pages.</li>
+            <li>Freelance in areas like design, coding, writing, and more on Fiverr, Upwork, etc.</li>
+            <li>Start a YouTube channel, blog, or social media page related to your skills or hobbies.</li>
+            <li>Offer tutoring to school students or peers in subjects you’re good at.</li>
+        </ul>
+    </div>
+</section>
+
+
+        <!-- Internship Opportunities -->
+        <section class="internships">
+            <h2>Paid Internship Opportunities</h2>
+            <div class="internship-list">
+                <div class="internship-card">
+                    <h3>Software Development Intern - Google</h3>
+                    <p>Work with the Google engineering team on cutting-edge projects. Paid internship with a chance to get a full-time offer.</p>
+                    <a href="https://careers.google.com/jobs/results/123456789-software-development-intern/" target="_blank">
+                        Apply Now
+                    </a>
+                </div>
+                <div class="internship-card">
+                    <h3>Data Scientist Intern - Microsoft</h3>
+                    <p>Join the data science team at Microsoft to analyze data, build models, and contribute to large-scale data-driven solutions.</p>
+                    <a href="https://careers.microsoft.com/us/en/job/123456789/data-scientist-intern" target="_blank">
+                        Apply Now
+                    </a>
+                </div>
+                <div class="internship-card">
+                    <h3>Cyber Security Intern - IBM</h3>
+                    <p>Help protect IBM's digital assets and learn about security vulnerabilities and solutions in real-world scenarios.</p>
+                    <a href="https://www.ibm.com/employment/internships/cyber-security-intern/" target="_blank">
+                        Apply Now
+                    </a>
+                </div>
+                <div class="internship-card">
+                    <h3>Cloud Computing Intern - Amazon Web Services</h3>
+                    <p>Work with AWS to improve cloud computing infrastructure, optimize processes, and build scalable systems for global applications.</p>
+                    <a href="https://aws.amazon.com/careers/internships/cloud-computing-intern/" target="_blank">
+                        Apply Now
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Job Search -->
+        <section class="job-search">
+            <h2>Job Search</h2>
+            <input type="text" id="jobSearch" placeholder="Search for jobs..." />
+            <button id="searchButton">Search</button>
+            <div class="job-results" id="jobResults">
+                <!-- Job results will appear here after searching -->
+            </div>
+        </section>
+
+        <!-- Interview Preparation -->
+        <section class="interview-prep">
+            <h2>Interview Preparation</h2>
+            <ul>
+                <li><a href="#">How to Prepare for Technical Interviews</a></li>
+                <li><a href="#">Common HR Interview Questions</a></li>
+                <li><a href="#">Top Interview Resources</a></li>
+            </ul>
+        </section>
+    </div>
+
+    
+    <!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Career Guidance</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>Contact Information</h3>
+            <ul>
+                <li><a href="mailto:support@mystudenthub.com">support@mystudenthub.com</a></li>
+                <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                <li>123, University Road, City, Country</li>
+            </ul>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+                <li><a href="#" class="social-icon facebook">Facebook</a></li>
+                <li><a href="#" class="social-icon twitter">Twitter</a></li>
+                <li><a href="#" class="social-icon linkedin">LinkedIn</a></li>
+                <li><a href="#" class="social-icon instagram">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright Notice -->
+    <div class="footer-bottom">
+        <p>© 2025 MyStudentHub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="car.js"></script>
+</body>
+</html>

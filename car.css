@@ -1,0 +1,493 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7fb;
+    color: #333;
+}
+
+/* Header Section */
+header {
+    background-color: #6c5ce7; /* Cool violet */
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 60px;
+    height: auto;
+}
+
+header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Main Content Section */
+.main-content {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Title Styling */
+h2 {
+    font-size: 2.5rem;
+    color: #2d3436; /* Dark gray */
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Career Path Section */
+.career-path {
+    margin-bottom: 50px;
+}
+
+.path-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.path-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    width: 22%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: linear-gradient(145deg, #f8f9fa, #e0e3e7); /* Soft gradient */
+}
+
+.path-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.path-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #6c5ce7; /* Cool violet */
+}
+
+.path-card p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Resume Builder Section */
+.resume-builder {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.resume-builder h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #6c5ce7;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #6c5ce7;
+    font-size: 1.1rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    color: #6c5ce7; /* User input color */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa; /* Lighter placeholder text */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #6c5ce7;
+    outline: none;
+}
+
+/* Button Styling */
+#downloadBtn {
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#downloadBtn:hover {
+    background-color: #5a4bd0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .resume-builder {
+        padding: 20px;
+    }
+
+    .resume-builder h1 {
+        font-size: 2rem;
+    }
+
+    input, textarea {
+        font-size: 0.95rem;
+    }
+
+    #downloadBtn {
+        font-size: 1rem;
+    }
+}
+
+/* Internship Section Styling */
+.internships {
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Light background for the section */
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.internships h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #6c5ce7; /* Purple color for the heading */
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.internship-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.internship-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 48%; /* Adjust width to create 2 elements in each row */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.internship-card h3 {
+    font-size: 1.8rem;
+    color: #6c5ce7; /* Purple color for the internship title */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.internship-card p {
+    font-size: 1rem;
+    color: #7f8c8d; /* Grey color for description */
+    margin-bottom: 20px;
+}
+
+.internship-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c5ce7; /* Purple background for the button */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.internship-card a:hover {
+    background-color: #5e4bb2; /* Darker purple on hover */
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .internship-card {
+        width: 100%; /* Stack elements on smaller screens */
+    }
+}
+
+
+/* Job Search Section */
+.job-search {
+    margin-bottom: 50px;
+}
+
+#jobSearch {
+    width: 70%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-right: 15px;
+    background-color: #f9f9f9;
+}
+
+#searchButton {
+    padding: 15px 25px;
+    background-color: #6c5ce7; /* Cool violet */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #5b4bdb;
+}
+
+.job-results {
+    margin-top: 30px;
+}
+
+/* Interview Preparation Section */
+.interview-prep {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #eaf2f8, #d0e1e8);
+}
+
+.interview-prep ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.interview-prep li {
+    margin-bottom: 15px;
+}
+
+.interview-prep a {
+    color: #6c5ce7; /* Cool violet */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.interview-prep a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #2c3e50; /* Dark cool blue */
+    color: white;
+    padding: 50px 20px;
+    font-size: 1rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    width: 30%;
+    padding: 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #6c5ce7; /* Cool violet */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links .social-icon {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #6c5ce7; /* Cool violet */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+    background-color: #5b4bdb; /* Darker violet */
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #34495e; /* Darker cool blue */
+    font-size: 1rem;
+    margin-top: 30px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .resume-builder {
+        padding: 20px;
+    }
+
+    .resume-builder h2 {
+        font-size: 1.6rem;
+    }
+
+    .resume-builder input,
+    .resume-builder textarea {
+        font-size: 0.9rem;
+    }
+
+    .resume-builder button {
+        font-size: 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+.student-finance {
+    padding: 40px 20px;
+    background-color: #f4f8ff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.student-finance h2 {
+    text-align: center;
+    color: #6c5ce7;
+    margin-bottom: 10px;
+}
+
+.finance-inputs {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.finance-inputs input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.finance-inputs button {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.finance-inputs button:hover {
+    background-color: #4834d4;
+}
+
+.finance-output {
+    text-align: center;
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.earning-tips {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.earning-tips h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.earning-tips ul {
+    list-style: disc;
+    padding-left: 20px;
+}

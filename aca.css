@@ -1,0 +1,283 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 1em;
+  }
+  
+  /* Header */
+  header {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  /* Timetable Section Styling */
+  section {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  td input[type="text"],
+  td input[type="date"] {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(1);
+  }
+  
+  /* Countdown Styling */
+  .countdown {
+    font-weight: bold;
+    color: #f44336;
+  }
+  
+  /* Animation for Table Rows */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  table tr {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  /* Add Row Button */
+  button {
+    margin-top: 20px;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    body {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  
+    table th, table td {
+      font-size: 0.9em;
+    }
+    
+    .container {
+      padding: 10px;
+    }
+  }
+  
+  /* Dark Mode Styling */
+  body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+  
+  body.dark-mode header {
+    background-color: #333;
+  }
+  
+  body.dark-mode table {
+    background-color: #222;
+  }
+  
+  body.dark-mode th {
+    background-color: #333;
+  }
+  
+  body.dark-mode td input[type="text"],
+  body.dark-mode td input[type="date"] {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+  }
+  
+  body.dark-mode button {
+    background-color: #333;
+    border: 1px solid #555;
+  }
+  
+  body.dark-mode button:hover {
+    background-color: #444;
+  }
+  
+  /* Smooth Transitions */
+  * {
+    transition: all 0.3s ease;
+  }
+  
+  #notification-time-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 30px; /* Increased bottom margin for more space */
+    flex-direction: column; /* Stack the elements vertically */
+    text-align: center; /* Center the content */
+  }
+  
+  #notification-time-section label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px; /* Increased space below the label */
+  }
+  
+  #notification-time {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 15px; /* Increased space below the input */
+    transition: all 0.3s ease;
+  }
+  
+  #notification-time:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Adding a focus effect */
+  }
+  
+  #notification-time-section button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 15px; /* Space below the button */
+  }
+  
+  #notification-time-section button:hover {
+    background-color: #45a049;
+  }
+  
+  #notification-time-section button:active {
+    background-color: #3e8e41;
+    transform: scale(0.98); /* Slight shrink effect on click */
+  }
+  
+  #notification-time-section button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Focus effect for the button */
+  }
+  
+  #notification-time-section h2 {
+    font-size: 24px;
+    color: #eaeaea;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space below the heading */
+  }
+
+  /* Header Styling */
+header {
+  background-color: #3a7bd5;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Adjust space between logo and text */
+}
+
+header .header-container .logo {
+  width: 50px; /* Adjust logo size */
+  height: auto;
+}
+
+header .header-container h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer .footer-container p {
+  margin: 5px 0;
+  font-size: 1rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academics - MyStudentHub</title>
+  <link rel="stylesheet" href="aca.css" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-container">
+      <img src="logo.png" alt="MyStudentHub Logo" class="logo">
+      <h2>MyStudentHub</h2>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>📚 Academics</h1>
+
+    <!-- Editable Class Timetable -->
+<section class="class-timetable">
+  <h2>📅 Class Timetable</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Day / Period</th>
+        <th>Period 1</th>
+        <th>Period 2</th>
+        <th>Period 3</th>
+        <th>Period 4</th>
+        <th>Period 5</th>
+        <th>Period 6</th>
+      </tr>
+    </thead>
+    <tbody id="classBody">
+      <!-- Rows added via JS -->
+    </tbody>
+  </table>
+  <button onclick="saveClassTimetable()">Save Class Timetable</button>
+</section>
+
+<!-- Input for setting the notification time -->
+<section class="notification-setting">
+  <h3>⏰ Notification Settings</h3>
+  <label for="notification-time">Set Notification Time:</label>
+  <input type="time" id="notification-time" />
+  <button onclick="saveNotificationTime()">Save Notification Time</button>
+</section>
+
+
+    <!-- Editable Exam Timetable with Countdown -->
+    <section class="exam-timetable">
+      <h2>📝 Exam Timetable</h2>
+      <table border="1" id="examTable">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Countdown</th>
+          </tr>
+        </thead>
+        <tbody id="examBody">
+          <tr>
+            <td><input type="text" placeholder="Subject" /></td>
+            <td><input type="date" onchange="updateCountdowns()" /></td>
+            <td class="countdown">-</td>
+          </tr>
+        </tbody>
+      </table>
+      <button onclick="addExamRow()">+ Add Row</button>
+      <button onclick="saveExamTimetable()">Save Exam Timetable</button>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 MyStudentHub. All rights reserved.</p>
+      <p>Built with ❤️ by CSE Students.</p>
+    </div>
+  </footer>
+
+<script src="aca.js"></script>
+</body>
+</html>
