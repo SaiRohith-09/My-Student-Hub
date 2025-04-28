@@ -58,20 +58,99 @@
             <th>Subject</th>
             <th>Date</th>
             <th>Countdown</th>
+            <th>Action</th> <!-- For Delete button -->
           </tr>
         </thead>
         <tbody id="examBody">
           <tr>
             <td><input type="text" placeholder="Subject" /></td>
-            <td><input type="date" onchange="updateCountdowns()" /></td>
+            <td><input type="date" placeholder="Due Date" onchange="updateCountdowns()" /></td>
             <td class="countdown">-</td>
-          </tr>
+            <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+        </tr>        
         </tbody>
       </table>
       <button onclick="addExamRow()">+ Add Row</button>
       <button onclick="saveExamTimetable()">Save Exam Timetable</button>
     </section>
   </div>
+
+ <!-- Assignment -->
+<section class="assignment">
+  <h2>📝 Assignments</h2>
+  <table border="1" id="assignmentTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Assignment Title</th>
+        <th>Due Date</th>
+        <th>Action</th> <!-- For Delete button -->
+      </tr>
+    </thead>
+    <tbody id="assignmentBody">
+      <tr>
+        <td><input type="text" placeholder="Subject" /></td>
+        <td><input type="text" placeholder="Title" /></td>
+        <td><input type="date" /></td>
+        <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="addAssignmentRow()">+ Add Assignment</button>
+  <button onclick="saveAssignmentRecords()">Save Assignments</button>
+</section>
+
+<!-- Lab Record Observations -->
+<section class="lab-records">
+  <h2>🧪 Lab Record Observations</h2>
+  <table border="1" id="labRecordTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Experiment</th>
+        <th>Action</th> <!-- For Delete button -->
+      </tr>
+    </thead>
+    <tbody id="labRecordBody">
+      <tr>
+        <td><input type="text" placeholder="Subject" /></td>
+        <td><input type="date" /></td>
+        <td><input type="text" placeholder="Experiment" /></td>
+        <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="addLabRecordRow()">+ Add Lab Record</button>
+  <button onclick="saveLabRecords()">Save Lab Records</button>
+</section>
+
+<!-- Class Tests -->
+<section class="class-tests">
+  <h2>🧑‍🏫 Class Tests</h2>
+  <table border="1" id="classTestTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Marks</th>
+        <th>Action</th> <!-- For Delete button -->
+      </tr>
+    </thead>
+    <tbody id="classTestBody">
+      <tr>
+        <td><input type="text" placeholder="Subject" /></td>
+        <td><input type="date" /></td>
+        <td><input type="number" placeholder="Marks" /></td>
+        <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="addClassTestRow()">+ Add Class Test</button>
+  <button onclick="saveClassTests()">Save Class Tests</button>
+</section>
+
+
 
   <footer class="site-footer">
     <div class="footer-container">
@@ -101,6 +180,7 @@
         </div>
       </div>
     </div>
+    
   
     <div class="footer-bottom">
       <p>&copy; 2025 MyStudentHub. Built with 💻 by CSE Students.</p>

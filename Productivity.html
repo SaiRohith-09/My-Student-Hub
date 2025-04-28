@@ -26,65 +26,85 @@
             <button id="resetPomodoro">Reset</button>
         </section>
 
-        <!-- Task List -->
-        <section class="task-list">
-            <h2>Task List</h2>
-            <form id="taskForm">
-                <input type="text" id="taskInput" placeholder="Add a new task">
-                <button type="submit">Add Task</button>
-            </form>
-            <ul id="taskList"></ul>
-        </section>
-
-        <!-- Assignment Due Dates -->
-        <section class="assignments">
-            <h2>Assignment Due Dates</h2>
-            <form id="assignmentForm">
-                <input type="text" id="assignment-name" placeholder="Assignment Name" required>
-                <input type="date" id="assignment-date" required>
-                <button type="submit">Add Assignment</button>
-            </form>
-            <ul id="assignmentList"></ul>
-        </section>
-
-        
-         <!-- Exam Preparation Checklist -->
-         <section class="exam-prep-checklist">
-            <h2>📝 Exam Preparation Checklist</h2>
-            <form id="examChecklistForm">
-                <input type="text" id="examTopicInput" placeholder="Add topic/chapter to revise" />
-                <button type="submit">Add Topic</button>
-            </form>
-            <ul id="examChecklist">
-                <!-- Topics will be listed here -->
-            </ul>
-            <p id="remainingCount">Remaining Topics: 0</p>
-        </section>
-
-        <!-- Project Due Dates -->
-        <section class="projects">
-            <h2>Project Due Dates</h2>
-            <form id="projectForm">
-                <input type="text" id="project-name" placeholder="Project Name" required>
-                <input type="date" id="project-date" required>
-                <button type="submit">Add Project</button>
-            </form>
-            <ul id="projectList"></ul>
-        </section>
-
         <!-- GPA Calculator -->
-<form id="gpaForm">
-    <div id="courses">
-        <div class="input-group">
-            <label for="course1">Course 1</label>
-            <input type="number" class="course-grade" placeholder="Grade" min="0" max="100">
-            <input type="number" class="course-credit" placeholder="Credit Hours" min="1">
-        </div>
-    </div>
-    <button type="button" id="addCourseButton">Add Another Course</button>
-    <button type="submit">Calculate GPA</button>
-    <div id="gpaResult"></div>
-</form>        
+        <section class="gpa-calculator">
+            <h2>GPA Calculator</h2>
+            <form id="gpaForm">
+                <div id="courses">
+                    <div class="input-group">
+                        <label for="course1">Course 1</label>
+                        <input type="number" class="course-grade" placeholder="Grade" min="0" max="100">
+                        <input type="number" class="course-credit" placeholder="Credit Hours" min="1">
+                    </div>
+                </div>
+                <button type="button" id="addCourseButton">Add Another Course</button>
+                <button type="submit">Calculate GPA</button>
+            </form>
+            <div id="gpaResult"></div>
+        </section>
+
+        <section class="daily-goals">
+            <h2>🎯 Daily Study Goals & Reflection</h2>
+            <form id="dailyGoalForm">
+                <label for="goal">Today's Goal:</label>
+                <input type="text" id="goal" placeholder="What is your goal for today?" required>
+                <button type="submit">Save Goal</button>
+            </form>
+            <div id="dailyReflection">
+                <textarea id="reflection" placeholder="Reflect on your progress..."></textarea>
+                <button onclick="saveReflection()">Save Reflection</button>
+            </div>
+        </section>
+
+        <section class="study-planner">
+            <h2>📝 Personalized Study Planner</h2>
+            <form id="studyPlannerForm">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" placeholder="Subject" required>
+                <label for="studyTime">Study Time (in hours):</label>
+                <input type="number" id="studyTime" min="1" required>
+                <button type="submit">Add to Planner</button>
+            </form>
+            <ul id="studyPlannerList">
+                <!-- Study sessions will appear here -->
+            </ul>
+        </section>
+        
+        <!-- Classroom Announcements -->
+        <section class="announcements">
+            <h2>📣 Classroom Announcements</h2>
+            <div id="announcementList">
+                <p>No new announcements</p>
+            </div>
+        </section>
+
+        <!-- Study Materials Section -->
+        <section class="study-materials">
+            <h2>📚 Study Materials</h2>
+            <ul>
+                <li><a href="#">Chapter 1: Introduction to Programming</a></li>
+                <li><a href="#">Chapter 2: Data Structures</a></li>
+                <li><a href="#">Chapter 3: Algorithms</a></li>
+                <!-- More study materials can be added here -->
+            </ul>
+        </section>
+
+        <!-- Academic Calendar -->
+        <section class="calendar">
+            <h2>📅 Academic Calendar</h2>
+            <p>Upcoming events: <br> Final Exams - May 15, 2025</p>
+        </section>
+
+        <!-- Revision Schedule -->
+        <section class="revision-schedule">
+            <h2>📖 Revision Schedule</h2>
+            <ul id="revisionList">
+                <li>May 1: Revise Programming Basics</li>
+                <li>May 3: Revise Data Structures</li>
+                <li>May 5: Revise Algorithms</li>
+                <!-- More revision tasks can be added here -->
+            </ul>
+        </section>
     </main>
 
     <footer class="site-footer">

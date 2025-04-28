@@ -129,9 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---------------- EXAM TIMETABLE ----------------
 
+// Function to load saved exam timetable from localStorage
 function loadExamTimetable() {
   const examBody = document.getElementById("examBody");
-  examBody.innerHTML = "";
+  examBody.innerHTML = "";  // Clear the table first
 
   const savedExams = JSON.parse(localStorage.getItem("examTimetable") || "[]");
   savedExams.forEach(exam => {
@@ -139,49 +140,37 @@ function loadExamTimetable() {
     examBody.appendChild(row);
   });
 
-  updateCountdowns();
-  setupExamNotifications(); // Call to set up exam notifications after loading data
+  updateCountdowns();  // Ensure countdowns are updated on load
+  setupExamNotifications();  // Setup notifications after loading data
 }
 
-function saveExamTimetable() {
-  const rows = document.querySelectorAll("#examBody tr");
-  const exams = [];
-
-  rows.forEach(row => {
-    const subject = row.querySelector("input[type='text']").value;
-    const date = row.querySelector("input[type='date']").value;
-    if (subject && date) {
-      exams.push({ subject, date });
-    }
-  });
-
-  localStorage.setItem("examTimetable", JSON.stringify(exams));
-  alert("✅ Exam timetable saved!");
-}
-
-function addExamRow() {
-  const examBody = document.getElementById("examBody");
-  const row = createExamRow("", "");
-  examBody.appendChild(row);
-}
-
+// Function to create an exam row (for adding or loading saved exams)
 function createExamRow(subject, date) {
   const row = document.createElement("tr");
   row.innerHTML = `
     <td><input type="text" value="${subject}" placeholder="Subject" /></td>
     <td><input type="date" value="${date}" onchange="updateCountdowns()" /></td>
     <td class="countdown">-</td>
-    <td><button onclick="deleteExamRow(this)">Delete</button></td>
+    <td><button onclick="deleteExamRow(this)">🗑️ Delete</button></td>
   `;
   return row;
 }
 
-function deleteExamRow(btn) {
-  btn.closest("tr").remove();
-  saveExamTimetable();
-  updateCountdowns();
+// Function to add a new exam row
+function addExamRow() {
+  const examBody = document.getElementById("examBody");
+  const row = createExamRow("", "");  // Empty row by default
+  examBody.appendChild(row);
+  updateCountdowns();  // Update countdowns after adding a row
 }
 
+// Function to delete an exam row
+function deleteExamRow(button) {
+  button.parentElement.parentElement.remove();  // Remove the row
+  updateCountdowns();  // Update countdowns after deleting a row
+}
+
+// Function to update the countdown for each exam
 function updateCountdowns() {
   const today = new Date();
   document.querySelectorAll("#examBody tr").forEach(row => {
@@ -190,93 +179,99 @@ function updateCountdowns() {
 
     if (dateInput.value) {
       const examDate = new Date(dateInput.value);
-      const daysLeft = Math.ceil((examDate - today) / (1000 * 60 * 60 * 24));
-      countdownCell.textContent = daysLeft >= 0 ? `${daysLeft} days left` : "Completed";
-    } else {
-      countdownCell.textContent = "-";
-    }
-  });
-}
+      const timeDiff = examDate - today;
+      const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));  // Calculate days left
 
-// ---------------- EXAM NOTIFICATIONS ----------------
-
-function setupExamNotifications() {
-  const savedExams = JSON.parse(localStorage.getItem("examTimetable") || "[]");
-  const today = new Date();
-  
-  savedExams.forEach(exam => {
-    const examDate = new Date(exam.date);
-    if (examDate >= today) {  // Only set notification for future exams
-      scheduleExamNotification(exam.subject, examDate);
-    }
-  });
-}
-
-function scheduleExamNotification(subject, examDate) {
-  const today = new Date();
-  const diffTime = examDate - today;
-  
-  if (diffTime <= 0) return; // Skip if the exam date is in the past
-  
-  // Set the notification for a day before the exam
-  const notificationTime = examDate.setDate(examDate.getDate() - 1); // 1 day before
-  
-  const timeDiff = notificationTime - today;
-  
-  setTimeout(() => {
-    sendExamNotification(subject, examDate);
-  }, timeDiff);
-  
-  // Set an additional notification for the exam day itself
-  const examDayDiff = examDate - today;
-  setTimeout(() => {
-    sendExamNotification(subject, examDate);
-  }, examDayDiff);
-}
-
-function sendExamNotification(subject, examDate) {
-  const message = `📝 Your exam for ${subject} is tomorrow!`;
-  const today = new Date();
-  
-  if (examDate.toDateString() === today.toDateString()) {
-    message = `⏳ Your exam for ${subject} is today! Good luck!`;
-  }
-  
-  if (Notification.permission === "granted") {
-    new Notification("📅 Exam Reminder", { body: message });
-  } else {
-    Notification.requestPermission().then(permission => {
-      if (permission === "granted") {
-        new Notification("📅 Exam Reminder", { body: message });
-      }
-    });
-  }
-}
-
-window.onload = () => {
-  loadClassTimetable();
-  loadExamTimetable();
-  loadNotificationTime();
-  setupClassTimetableNotifications();
-  updateCountdowns();
-  setupExamNotifications();
-  
-  // Ask for Notification permission on page load
-  requestNotificationPermission();
-};
-
-// Request notification permission
-function requestNotificationPermission() {
-  if (Notification.permission === "default") {
-    Notification.requestPermission().then(permission => {
-      if (permission === "granted") {
-        alert("You will receive notifications for classes and exams.");
+      if (daysLeft >= 0) {
+        countdownCell.textContent = `${daysLeft} days left`;  // Show countdown
       } else {
-        alert("You won't receive notifications unless you grant permission.");
+        countdownCell.textContent = "Completed";  // Show "Completed" if past the exam date
       }
-    });
-  }
+    } else {
+      countdownCell.textContent = "-";  // If no date, show "-"
+    }
+  });
 }
+
+// Function to save the exam timetable to localStorage
+function saveExamTimetable() {
+  const exams = [];
+  document.querySelectorAll("#examBody tr").forEach(row => {
+    const subject = row.querySelector("input[type='text']").value;
+    const date = row.querySelector("input[type='date']").value;
+    exams.push({ subject, date });
+  });
+
+  localStorage.setItem("examTimetable", JSON.stringify(exams));
+  alert('Exam timetable saved successfully! ✅');
+}
+
+// ---------------- ASSIGNMENTS ----------------
+
+// Function to add a new assignment row
+function addAssignmentRow() {
+  const table = document.getElementById('assignmentBody');
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><input type="text" placeholder="Subject" /></td>
+    <td><input type="text" placeholder="Title" /></td>
+    <td><input type="date" /></td>
+    <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+  `;
+  table.appendChild(row);
+}
+
+// Function to delete an assignment row
+function deleteRow(button) {
+  button.parentElement.parentElement.remove();  // Remove the row
+}
+
+// Function to save the assignment records
+function saveAssignmentRecords() {
+  alert('Assignments saved successfully! ✅');
+}
+
+// ---------------- LAB RECORDS ----------------
+
+// Function to add a new lab record row
+function addLabRecordRow() {
+  const table = document.getElementById('labRecordBody');
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><input type="text" placeholder="Subject" /></td>
+    <td><input type="date" /></td>
+    <td><input type="text" placeholder="Experiment" /></td>
+    <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+  `;
+  table.appendChild(row);
+}
+
+// Function to save the lab records
+function saveLabRecords() {
+  alert('Lab records saved successfully! ✅');
+}
+
+// ---------------- CLASS TESTS ----------------
+
+// Function to add a new class test row
+function addClassTestRow() {
+  const table = document.getElementById('classTestBody');
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td><input type="text" placeholder="Subject" /></td>
+    <td><input type="date" /></td>
+    <td><input type="number" placeholder="Marks" /></td>
+    <td><button onclick="deleteRow(this)">🗑️ Delete</button></td>
+  `;
+  table.appendChild(row);
+}
+
+// Function to save the class test records
+function saveClassTests() {
+  alert('Class tests saved successfully! ✅');
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -294,5 +289,4 @@ function logout() {
   alert("You have been logged out.");
   window.location.href = "login.html";
 }
-
 

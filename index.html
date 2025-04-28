@@ -60,26 +60,28 @@
 
         <section class="overview">
           <h1 style="font-size: xx-large;">💬 Features of MyStudentHub</h1>
-          <div class="card">
-
+        
+          <a href="academics.html" class="card">
             <h3>📚 Academics</h3>
             <p>Manage your classes, assignments, and exams effortlessly.</p>
-          </div>
-
-          <div class="card">
+          </a>
+        
+          <a href="productivity.html" class="card">
             <h3>📈 Productivity</h3>
             <p>Boost focus with Pomodoro, track habits, and plan tasks smartly.</p>
-          </div>
-          
-          <div class="card">
+          </a>
+        
+          <a href="career-finance.html" class="card">
             <h3>💼 Career & Finance</h3>
             <p>Build resumes, find internships, and manage your finances.</p>
-          </div>
-          <div class="card">
-            <h3>🧘 Coding and Skills</h3>
-            <p>Take breaks, relax, and play with your Robot Pet buddy.</p>
-          </div>
+          </a>
+        
+          <a href="coding-skills.html" class="card">
+            <h3>💻 Coding & Skills</h3>
+            <p>Sharpen your coding skills, master new technologies.</p>
+          </a>
         </section>
+        
 
 
         <!-- Upcoming Events Section -->
@@ -156,59 +158,6 @@
   </div>
 </footer>
 
-    <script>
-      const hamburger = document.getElementById('hamburger');
-      const sidebar = document.getElementById('sidebar');
-    
-      hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-      });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const username = localStorage.getItem("signupUsername");
-    const rollNumber = localStorage.getItem("signupRollNumber");
-
-    const usernameSpan = document.getElementById("display-username");
-    const rollSpan = document.getElementById("display-rollnumber");
-
-    if (usernameSpan && username) {
-      usernameSpan.textContent = username;
-    }
-
-    if (rollSpan && rollNumber) {
-      rollSpan.textContent = rollNumber;
-    }
-  });
-
-  const btn = document.querySelector(".back-to-top");
-
-  window.onscroll = () => {
-    if (document.documentElement.scrollTop > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-  document.getElementById("logoutBtn").addEventListener("click", function () {
-  localStorage.clear();
-  sessionStorage.clear();
-  document.cookie.split(";").forEach(function (c) {
-    document.cookie = c
-      .replace(/^ +/, "")
-      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-  });
-  alert("You have been logged out.");
-  window.location.href = "index.html";
-});
-</script>
-    
+<script src="main.js"></script>
 </body>
 </html>

@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
     <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      </head>      
     <style>
+        .password-container {
+  position: relative;
+}
+
+#toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+
+
+
         * {
             margin: 0;
             padding: 0;
@@ -175,15 +194,20 @@
     padding-right: 40px; /* space for the eye icon */
 }
 
-#togglePassword {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-60%);
-    cursor: pointer;
-    font-size: 18px;
-    color: #fff;
+.input-group {
+  position: relative;
 }
+
+#toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 35%; /* Adjust this value to place the icon higher */
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
 
 
     </style>
@@ -207,11 +231,11 @@
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
-                <span id="togglePassword">👁️</span>
+                <span id="toggle-password" class="eye-icon"><i class="fas fa-eye"></i></span>
                 <div id="strength-bar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
                 </div>
                 <small id="strength-text">Password Strength</small>
             </div>
@@ -254,6 +278,7 @@
     });
 });
 
+// Password strength evaluation
 document.getElementById("password").addEventListener("input", function () {
     const password = this.value;
     const strengthText = document.getElementById("strength-text");
@@ -261,6 +286,7 @@ document.getElementById("password").addEventListener("input", function () {
 
     let strength = 0;
 
+    // Check password strength conditions
     if (password.length >= 6) strength++;
     if (/[A-Z]/.test(password)) strength++;
     if (/[0-9]/.test(password)) strength++;
@@ -269,6 +295,7 @@ document.getElementById("password").addEventListener("input", function () {
     // Reset bars
     bars.forEach(bar => bar.style.background = "rgba(255, 255, 255, 0.3)");
 
+    // Update strength and bars based on conditions
     if (strength === 0) {
         strengthText.textContent = "Password Strength";
     } else if (strength <= 2) {
@@ -286,18 +313,20 @@ document.getElementById("password").addEventListener("input", function () {
     }
 });
 
-document.getElementById("togglePassword").addEventListener("click", function () {
-    const passwordField = document.getElementById("password");
-    const type = passwordField.getAttribute("type");
+// JavaScript for Toggling Password Visibility
+document.getElementById("toggle-password").addEventListener("click", function () {
+  const passwordField = document.getElementById("password");
+  const type = passwordField.getAttribute("type");
 
-    if (type === "password") {
-        passwordField.setAttribute("type", "text");
-        this.textContent = "🙈"; // eye with slash
-    } else {
-        passwordField.setAttribute("type", "password");
-        this.textContent = "👁️";
-    }
+  if (type === "password") {
+    passwordField.setAttribute("type", "text");
+    this.innerHTML = '<i class="fas fa-eye-slash"></i>';  // Change to eye-slash icon
+  } else {
+    passwordField.setAttribute("type", "password");
+    this.innerHTML = '<i class="fas fa-eye"></i>';  // Change to eye icon
+  }
 });
+
     </script>
 
 </body>

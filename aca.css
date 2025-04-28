@@ -351,3 +351,39 @@ header .header-container h2 {
   font-size: 0.9rem;
   color: #b0bec5;
 }
+
+
+.assignment,
+.lab-records,
+.class-tests {
+  width: 67%;         /* or 70%, 60% as you prefer */
+  margin: 40px auto;  /* center align + spacing */
+  padding: 20px;
+  background: #f9f9f9; /* light background to look clean */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* soft shadow */
+}
+
+.assignment h2,
+.lab-records h2,
+.class-tests h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.assignment table,
+.lab-records table,
+.class-tests table {
+  width: 100%; /* keep the table fitting inside the section */
+  border-collapse: collapse;
+}
+
+.assignment table th,
+.lab-records table th,
+.class-tests table th,
+.assignment table td,
+.lab-records table td,
+.class-tests table td {
+  padding: 10px;
+  text-align: center;
+}
