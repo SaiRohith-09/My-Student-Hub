@@ -45,29 +45,25 @@ From learning productivity to career readiness — everything in one place! 💯
 
 My-Student-Hub/
 │
-├── index.html               # Homepage
-├── features.html            # Feature overview page
-├── about.html               # About MyStudentHub
-├── contact.html             # Contact page
+├── index.html # Homepage
+├── features.html # Feature overview page
+├── about.html # About the platform
+├── contact.html # Contact page
 │
 ├── css/
-│   ├── styles.css           # Main styling file
-│   └── responsive.css       # Adjustments for different screen sizes
+│ ├── styles.css # Global styles
+│ └── responsive.css # Mobile responsiveness
 │
 ├── js/
-│   ├── main.js              # UI interactions
-│   ├── events.js            # Events list / data display
-│   └── user.js              # User input & personalization (Roll No etc.)
+│ ├── main.js # Core interactions
+│ ├── events.js # Upcoming events logic
+│ └── user.js # User input handling (roll no etc.)
 │
 ├── assets/
-│   ├── images/              # Graphics, icons, banners
-│   └── logos/               # Branding elements (if any)
+│ ├── images/ # Icons and UI illustrations
+│ └── logos/ # Branding files
 │
-└── README.md                # Documentation
-
-````
-
----
+└── README.md # Documentation
 
 ## 🛠 Tech Stack
 
